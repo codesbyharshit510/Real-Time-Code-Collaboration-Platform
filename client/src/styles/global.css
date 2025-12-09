@@ -13,7 +13,6 @@ body {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
-
     --sb-track-color: #3d404a;
     --sb-thumb-color: #e1e1ffb3;
     --sb-size: 6px;
@@ -43,24 +42,13 @@ body {
     }
 }
 
-@keyframes up-down {
-    0% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
 /* Editor */
-
 .cm-editor {
     max-height: 93vh;
 }
 
 .cm-editor .cm-scroller {
     font-family: "Space Mono", monospace;
-    /* min-height: 100vh; */
 }
 
 select {
@@ -81,22 +69,12 @@ select {
 }
 
 /* Github Corner */
-
 .github-corner:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
 }
 
 @keyframes octocat-wave {
-    0%,
-    100% {
-        transform: rotate(0);
-    }
-    20%,
-    60% {
-        transform: rotate(-25deg);
-    }
-    40%,
-    80% {
-        transform: rotate(10deg);
-    }
+    0%, 100% { transform: rotate(0); }
+    20%, 60% { transform: rotate(-25deg); }
+    40%, 80% { transform: rotate(10deg); }
 }
