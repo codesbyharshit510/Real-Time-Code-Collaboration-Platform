@@ -1,15 +1,12 @@
-// import React from "react"
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import AppProvider from './context/AppProvider.tsx'
-import "tldraw/tldraw.css" // <--- CRITICAL: Tldraw styles must be here
-import "@/styles/global.css" // <--- Your global styles
+import ReactDOM from "react-dom/client"
+import App from "./App.tsx"
+import AppProvider from "./context/AppProvider.tsx"
+// This line fixes the "Broken UI" by bundling the styles correctly
+import "tldraw/tldraw.css"
+import "@/styles/global.css"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-    // <React.StrictMode>
     <AppProvider>
         <App />
     </AppProvider>,
-    // </React.StrictMode>
 )
