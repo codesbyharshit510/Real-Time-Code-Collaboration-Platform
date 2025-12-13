@@ -19,6 +19,11 @@ services:
       context: ./client
       dockerfile: Dockerfile
       target: runner
+      # --- ADD THIS SECTION ---
+      args:
+        
+        VITE_BACKEND_URL: "https://real-time-code-collaboration-platform.onrender.com:3000" 
+      # ------------------------
     volumes:
       - ./client:/app
       - /build/node_modules

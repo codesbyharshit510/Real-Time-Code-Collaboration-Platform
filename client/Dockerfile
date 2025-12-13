@@ -11,6 +11,13 @@ RUN npm ci
 # Copy the rest of the source code and build
 COPY . .
 
+# --- ADD THESE LINES ---
+# 1. Accept the argument defined in docker-compose.yml
+ARG VITE_BACKEND_URL
+# 2. Make it available as an environment variable during the build step
+ENV VITE_BACKEND_URL=$VITE_BACKEND_URL
+# -----------------------
+
 RUN npm run build
 RUN npm prune --omit=dev
 

@@ -11,11 +11,17 @@ export default defineConfig({
             output: {
                 manualChunks(id) {
                     if (id.includes("node_modules")) {
-                        return id
-                            .toString()
-                            .split("node_modules/")[1]
-                            .split("/")[0]
-                            .toString()
+                        // Group drawing libraries
+                        if (id.includes("tldraw")) {
+                            return "tldraw"
+                        }
+                        // Group editor libraries (Codemirror)
+                        if (id.includes("codemirror") || id.includes("@uiw")) {
+                            return "editor"
+                        }
+                        // Group everything else into a single 'vendor' chunk
+                        // This prevents having hundreds of tiny JS files
+                        return "vendor"
                     }
                 },
             },
@@ -32,5 +38,5 @@ export default defineConfig({
     server: {
         open: true,
         port: 5173,
-    }
+    },
 })
